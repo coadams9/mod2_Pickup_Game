@@ -1,0 +1,16 @@
+<% if cur_player %>
+  <h1> Your Game </h1>
+<% else %>
+  <h1> A Game in your area </h1>
+<% end %>
+
+    <li>Title: <%=@game.title%></li>
+    <li>Location: <%=@game.location%></li>
+    <li>Time: <%=@game.time%></li>
+
+<h4> Who's all goin <h4>
+  <%@game.players.each do |player|%>
+    <li> <%= player.name %> </li>
+  <% end %>
+
+<%= button_to "Join game", action: "join_game", controller: "games"%>
